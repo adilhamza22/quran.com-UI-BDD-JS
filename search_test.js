@@ -1,5 +1,5 @@
 Feature('search');
-Search surah
+//Search surah
 Scenario(' Searching a specific Surah by name or number that exists',({I})=>{
     I.amOnPage('http://www.quran.com')
     I.wait(2)
