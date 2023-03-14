@@ -1,35 +1,28 @@
 Feature('search');
+Search surah
 Scenario(' Searching a specific Surah by name or number that exists',({I})=>{
-  Given('The user is on the search bar', () => {
-    I.amOnPage('/')
-    search = I.locate('div').withText('What do you want to read?')
-  
-  });
-  
-  When('The user types surah name OR number',()=>{
-    I.fillField('What do you want to read?','Al-Fatihah')
-  
-    
-  })
-  Then('The system should display the drop down menu of all available languages',()=>{
-    I.seeElement('Surah Al-Fatihah')
-  })
-  
+    I.amOnPage('http://www.quran.com')
+    I.wait(2)
+    I.click('//*[@id="command-bar"]/div[1]/span')
+    // I.wait(2)
+    I.fillField('//*[@id="command-bar"]/div[1]/span','Al-Fatihah')
+    // I.pressKey('Enter');
+    I.click('Surah Al-Fatihah','//*[@id="radix-1"]/div/div[2]/ul/li/div[1]/ul/li/div[1]/p')
+
+    // I.wait(2)
+    // I.pressKeyDown('Enter')
+    I.wait(3)
+    I.see('1:1')
 });
-Feature('search');
 
 Scenario('Searching a random text that is not the name of any surah/reciter/translator/anything',({I})=>{
-
-Given('the user is on the search bar',()=>{
-  I.amOnPage('/')
-  search = I.locate('div').withText('What do you want to read?')  
-})
-
-When('The user types text',()=>{
-  I.fillField('What do you want to read?','xyz')
-})
-Then('The system should not display anything with that name',()=>{
-  I.dontSeeElement('Navigations')
-})
+    I.amOnPage('http://www.quran.com')
+    I.wait(2)
+    I.click('//*[@id="command-bar"]/div[1]/span')
+    I.wait(1)
+    I.fillField('//*[@id="command-bar"]/div[1]/span','xyz')
+    I.wait(1)
+    I.dontSee('Navigations')
+    I.wait(1)
 
 });
