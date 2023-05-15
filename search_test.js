@@ -7,6 +7,7 @@ Scenario(' Searching a specific Surah by name or number that exists',({I})=>{
     // I.wait(2)
     I.fillField('//*[@id="command-bar"]/div[1]/span','Al-Fatihah')
     // I.pressKey('Enter');
+    I.wait(3)
     I.click('Surah Al-Fatihah','//*[@id="radix-1"]/div/div[2]/ul/li/div[1]/ul/li/div[1]/p')
 
     // I.wait(2)
